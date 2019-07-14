@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import MoviesTable from "./moviesTable";
 import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
@@ -48,6 +49,11 @@ class Movies extends Component {
     this.setState({ sortColumn });
   };
 
+  handleNewMovie = () => {
+    console.log(this.props.addNewMovie);
+    console.log("new movie");
+  };
+
   getPagedData = () => {
     const {
       pageSize,
@@ -87,6 +93,9 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
+          <Link className="btn btn-primary mb-2" to="/movies/new">
+            New Movie
+          </Link>
           <p>There are {totalCount} movies in the Database.</p>
           <MoviesTable
             movies={movies}

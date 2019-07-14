@@ -1,19 +1,20 @@
 import React from "react";
 
-const Input = ({ name, label, value, error, onChange }) => {
+const Input = ({ type, name, label, value, error, onChange }) => {
+  const classes = error ? "form-control is-invalid" : "form-control";
+
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <input
-        autoFocus
         value={value}
         onChange={onChange}
         id={name}
         name={name}
-        type="text"
-        className="form-control"
+        type={type}
+        className={classes}
       />
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="invalid-feedback">{error}</div>}
     </div>
   );
 };
