@@ -42,7 +42,6 @@ class Movies extends Component {
   handleGenreSelect = genre => {
     const genres = genre._id !== "allGenresID" ? genre : this.state.genres;
     this.setState({ selectedGenre: genres, currentPage: 1 });
-    console.log(this.state.genres);
   };
 
   handleSort = sortColumn => {
@@ -93,7 +92,7 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <Link className="btn btn-primary mb-2" to="/movies/new">
+          <Link className="btn btn-primary mb-3" to="/movies/new">
             New Movie
           </Link>
           <p>There are {totalCount} movies in the Database.</p>
